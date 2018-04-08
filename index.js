@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
         cb(null, file.originalname)
     }
 });
-const upload = multer({storage: storage});
+const upload = multer({storage: storage, limits: {fileSize: 1000000000, files: 1}});
 
 var app = express()
 const PORT = process.env.PORT || 5000

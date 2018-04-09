@@ -12,7 +12,8 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage, limits: {fileSize: 1000000000, files: 1}});
 
 var app = express()
-const PORT = process.env.PORT || 5000
+const HOST = '0.0.0.0';
+const PORT = process.env.PORT || 5000;
 
 // Serve URLs like /ftp/thing as public/ftp/thing
 // The express.static serves the file contents
@@ -26,4 +27,4 @@ app.post("/upload", upload.single("file"), function (req, res) {
 
 
 // Listen
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app.listen(HOST, PORT, () => console.log(`Listening on ${ PORT }`))

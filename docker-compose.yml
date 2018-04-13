@@ -12,19 +12,12 @@ services:
         max-file: "50"
     volumes:
       - ./public:/app/public
-    networks:
-      envoymesh:
-        aliases:
-          - app
     expose:
       - "8081"
     ports:
       - "8081:5000"
 
 networks:
-  envoymesh:
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.16.0.0/16
-        gateway: 172.16.0.1
+  default:
+    external:
+      name: share_network

@@ -13,9 +13,9 @@ services:
     volumes:
       - ./public:/app/public
     expose:
-      - "8081"
+      - ${PORT}
     ports:
-      - "8081:5000"
+      - ${PORT}:5000
 
 networks:
   default:
